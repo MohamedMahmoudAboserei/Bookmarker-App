@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icon bookmark.png">
+    <title>Bookmarker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="position-relative">
+            <div class="title-head d-flex flex-column justify-content-center align-items-center">
+                <h1>Bookmarker</h1>
+            </div>
+            <div class="line">
+                <h2>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Bookmark your favorite sites
+                    <i class="fa-solid fa-bookmark"></i>
+                </h2>
+                <div class="mb-3">
+                    <i class="fa-solid fa-book-bookmark icon-co"></i>
+                    <label for="bookmarkName" class="form-label">Site Name</label>
+                    <input type="text" class="form-control" id="bookmarkName" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <i class="fa-solid fa-link icon-co"></i>
+                    <label for="bookmarkURL" class="form-label">Site URL</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                        <input type="url" class="form-control" id="bookmarkURL"
+                            aria-describedby="basic-addon3 basic-addon4">
+                    </div>
+                </div>
+                <div class="mx-auto text-center">
+                    <button class="btn btn-submit px-5 mb-4" id="BtnSubmit">Submit</button>
+                </div>
+            </div>
+            <table class="table mt-4 text-center bg-light">
+                <thead>
+                    <th class="text-capitalize">ID</th>
+                    <th class="text-capitalize">Website Name</th>
+                    <th class="text-capitalize">Visit</th>
+                    <th class="text-capitalize">Delete</th>
+                </thead>
+                <tbody id="tableContent">
+                </tbody>
+            </table>
+        </div>
+        <div class="d-none box-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center">
+            <div class="box-content bg-white p-4 rounded-2 shadow-lg">
+                <header class="box-header w-100 d-flex justify-content-between align-items-center mb-4">
+                    <div class="circles d-flex">
+                        <span class="rounded-circle me-2"></span>
+                        <span class="rounded-circle me-2"></span>
+                        <span class="rounded-circle me-2"></span>
+                    </div>
+                    <button class="btn border-0" id="closeBtn">
+                        <i class="fa-solid fa-xmark close fs-3"></i>
+                    </button>
+                </header>
+                <p class="pb-2">
+                    Site Name or Url is not valid, Please follow the rules below :
+                </p>
+                <ul class="rules list-unstyled">
+                    <li>
+                        <i class="fa-regular fa-circle-right"></i>Site name must
+                        contain at least 3 characters
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-right"></i>Site URL must be a
+                        valid one
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

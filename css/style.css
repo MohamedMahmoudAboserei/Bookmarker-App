@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-image: url(../img/gradient-dark-blue-futuristic-digital-background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+.container .title-head {
+    margin: 80px 0 0;
+}
+
+.container .title-head h1 {
+    color: #ececec;
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 60px;
+    position: relative;
+    padding: 5px;
+}
+
+.container .title-head h1::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    left: 0;
+    bottom: 10px;
+    background-color: #0004ff;
+    transition: height 0.5s;
+    z-index: -1;
+}
+
+.container .title-head h1:hover::before {
+    height: 50%;
+    background-color: #1b1c77;
+}
+
+.container .line {
+    border-width: 2px 0 2px 0;
+    border-style: dotted;
+    border-color: #ececec;
+}
+
+.container .line h2 {
+    text-align: center;
+    padding: 30px;
+    font-size: 25px;
+    background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container .line label {
+    color: #ececec;
+    font-size: 18px;
+}
+
+.container .line .icon-co {
+    color: #ececec;
+    font-size: 18px;
+    padding: 0 5px 0 0;
+}
+
+.container .line .form-control:focus {
+    color: #1f1f1f;
+    background-color: #fff;
+    border-color: #ececec;
+    outline: 0;
+    box-shadow: 0 0 0 2px #a7a7a7;
+}
+
+.container .btn-submit {
+    --bs-btn-color: #ececec;
+    --bs-btn-bg: #0004ff;
+    --bs-btn-hover-color: #ececec;
+    --bs-btn-hover-bg: #1b1c77;
+}
+
+.container .btn-visit {
+    --bs-btn-color: #ececec;
+    --bs-btn-bg: #9eb23b;
+    --bs-btn-hover-color: #ececec;
+    --bs-btn-hover-bg: #8a9e23;
+}
+
+.container .btn-delete {
+    --bs-btn-color: #ececec;
+    --bs-btn-bg: #eb1d36;
+    --bs-btn-hover-color: #ececec;
+    --bs-btn-hover-bg: #d30820;
+}
+
+.container table {
+    vertical-align: middle !important;
+}
+
+/* ==> box validation */
+
+.container .box-info {
+    background-color: #0007;
+}
+
+.container .box-info .box-content {
+    width: 500px;
+    z-index: 10;
+}
+
+.container .box-info .box-content .circles span {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.container .box-info .box-content .circles span:nth-child(1) {
+    background-color: #f15f5d;
+}
+
+.container .box-info .box-content .circles span:nth-child(2) {
+    background-color: #febe2e;
+}
+
+.container .box-info .box-content .circles span:nth-child(3) {
+    background-color: #4db748;
+}
+
+.container .box-info .box-content p {
+    font-size: 18px;
+    line-height: 1.3;
+    color: #1f1f1f;
+}
+
+.container .box-info .box-content .rules li {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.container .box-info .box-content .rules li i {
+    color: #eb1d36;
+    padding-right: 10px;
+}
