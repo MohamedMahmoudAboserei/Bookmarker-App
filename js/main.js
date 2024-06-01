@@ -7,6 +7,7 @@ let BtnVisit;
 let closeBtn = document.getElementById("closeBtn");
 let boxModal = document.querySelector(".box-info");
 let bookmarks = [];
+let search = document.getElementById("search");
 
 // ==> Verify the presence of the menu in localStorage <==
 
@@ -16,7 +17,6 @@ if (localStorage.getItem("bookmarksList") != null) {
     let storedBookmarks = localStorage.getItem("bookmarksList");
     try {
         bookmarks = JSON.parse(storedBookmarks);
-        // تأكيد أن `bookmarks` هو مصفوفة
         if (!Array.isArray(bookmarks)) {
             bookmarks = [];
         }
@@ -195,5 +195,49 @@ document.addEventListener("click", function (e) {
         closeModal();
     }
 });
+
+// ==> Search Function <==
+
+function searchName() {
+    let searchterm = search.value.toLowerCase();
+    let searchCartoona = "";
+
+    for (let i = 0; i < bookmarks.length; i++) {
+        if (bookmarks[i].siteName.toLowerCase().includes(searchterm)) {
+            searchCartoona += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${bookmarks[i].siteName}</td>
+                    <td>
+                        <button class="btn btn-visit" data-index="${i}">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-delete" data-index="${i}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }
+    }
+    tableContent.innerHTML = searchCartoona;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

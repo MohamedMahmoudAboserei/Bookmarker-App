@@ -41,6 +41,15 @@
                     <button class="btn btn-submit px-5 mb-4" id="BtnSubmit">Submit</button>
                 </div>
             </div>
+            <div class="my-4">
+                    <div class="input-group w-50 mx-auto">
+                        <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input onkeyup="searchName()" type="text" class="form-control" id="search"
+                            aria-describedby="basic-addon3 basic-addon4" 
+                            placeholder="search by website name..."
+                        >
+                    </div>
+                </div>
             <table class="table mt-4 text-center bg-light">
                 <thead>
                     <th class="text-capitalize">ID</th>
@@ -52,7 +61,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="d-none box-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center">
+        <div
+            class="d-none box-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center">
             <div class="box-content bg-white p-4 rounded-2 shadow-lg">
                 <header class="box-header w-100 d-flex justify-content-between align-items-center mb-4">
                     <div class="circles d-flex">
