@@ -8,6 +8,10 @@ let closeBtn = document.getElementById("closeBtn");
 let boxModal = document.querySelector(".box-info");
 let bookmarks = [];
 let search = document.getElementById("search");
+let mainindex;
+let editmode = false;
+
+
 
 // ==> Verify the presence of the menu in localStorage <==
 
@@ -53,6 +57,11 @@ function displayBookmark(indexOfWebsite) {
         <td>
             <button class="btn btn-visit" data-index="${indexOfWebsite}">
                 <i class="fa-solid fa-eye"></i>
+            </button>
+        </td>
+        <td>
+            <button onclick="EditBookmark(${indexOfWebsite})" class="btn btn-edit" data-index="${indexOfWebsite}">
+                <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </td>
         <td>
@@ -104,25 +113,44 @@ function capitalize(str) {
 // ==> Submit <==
 
 BtnSubmit.addEventListener("click", function () {
-    if (
-        siteName.classList.contains("is-valid") &&
-        siteURL.classList.contains("is-valid")
-    ) {
+    if (!editmode) {
+        if (
+            siteName.classList.contains("is-valid") &&
+            siteURL.classList.contains("is-valid")
+        ) {
+            let bookmark = {
+                siteName: capitalize(siteName.value),
+                siteURL: siteURL.value,
+            };
+            if (!Array.isArray(bookmarks)) {
+                bookmarks = [];
+            }
+            bookmarks.push(bookmark);
+            localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
+            displayBookmark(bookmarks.length - 1);
+            clearInput();
+            siteName.classList.remove("is-valid");
+            siteURL.classList.remove("is-valid");
+        } else {
+            boxModal.classList.remove("d-none");
+        }
+    } else {
         let bookmark = {
             siteName: capitalize(siteName.value),
             siteURL: siteURL.value,
         };
-        if (!Array.isArray(bookmarks)) {
-            bookmarks = [];
-        }
-        bookmarks.push(bookmark);
+        bookmarks[mainindex] = bookmark;
         localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
-        displayBookmark(bookmarks.length - 1);
+        
+        tableContent.innerHTML = '';
+        bookmarks.forEach((bookmark, index) => {
+            displayBookmark(index);
+        });
         clearInput();
         siteName.classList.remove("is-valid");
         siteURL.classList.remove("is-valid");
-    } else {
-        boxModal.classList.remove("d-none");
+        editmode = false;
+        BtnSubmit.innerHTML = "Add website";
     }
 });
 
@@ -136,6 +164,19 @@ function deleteBookmark(e) {
         displayBookmark(k);
     }
     localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
+}
+
+// ==> Edit <==
+
+function EditBookmark(indexOfWebsite) {
+    editmode = true;
+    mainindex = indexOfWebsite;
+
+    siteName.value = bookmarks[indexOfWebsite].siteName;
+    siteURL.value = bookmarks[indexOfWebsite].siteURL;
+
+    BtnSubmit.innerHTML = "Edit website"
+    BtnSubmit.classList.add("btn-edit")
 }
 
 // ==> Visit <==
@@ -211,6 +252,11 @@ function searchName() {
                     <td>
                         <button class="btn btn-visit" data-index="${i}">
                             <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="EditBookmark(${i})" class="btn btn-edit" data-index="${i}">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                     </td>
                     <td>

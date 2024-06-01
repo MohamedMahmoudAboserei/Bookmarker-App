@@ -94,6 +94,14 @@ body {
     --bs-btn-hover-bg: #8a9e23;
 }
 
+.container .btn-edit {
+    --bs-btn-color: #ececec;
+    --bs-btn-bg: #ffd43b;
+    --bs-btn-hover-color: #ececec;
+    --bs-btn-hover-bg: #a3892a;
+;
+}
+
 .container .btn-delete {
     --bs-btn-color: #ececec;
     --bs-btn-bg: #eb1d36;
